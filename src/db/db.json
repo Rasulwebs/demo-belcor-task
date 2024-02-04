@@ -1,0 +1,48 @@
+{
+  "customers": [
+    {
+      "username": "demouser",
+      "email": "demo@gmail.com",
+      "password": "123456",
+      "correctAnsvers": 0
+    },
+    {
+      "username": "demouser2",
+      "email": "demo2@gmail.com",
+      "password": "1234567",
+      "correctAnsvers": 0
+    }
+  ],
+  "quizdata": [
+    {
+      "subject": "Test demo",
+      "options": [
+        {
+          "question": "Nima degani?",
+          "a": "demo",
+          "b": "test"
+        },
+        {
+          "question": "Nima degani2?",
+          "a": "demo2",
+          "b": "test2"
+        }
+      ]
+    },
+    {
+      "subject": "Test demo2",
+      "options": [
+        {
+          "question": "Nima degani22?",
+          "a": "demo22",
+          "b": "test22"
+        },
+        {
+          "question": "Nima degani233?",
+          "a": "demo233",
+          "b": "test233"
+        }
+      ]
+    }
+  ]
+}
