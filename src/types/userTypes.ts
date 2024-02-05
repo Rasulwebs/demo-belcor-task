@@ -3,7 +3,7 @@ export namespace UserTypes {
     email: string;
     username: string;
     isAuth: boolean;
-    id:string
+    id?:string
   }
 
   export interface IUser {

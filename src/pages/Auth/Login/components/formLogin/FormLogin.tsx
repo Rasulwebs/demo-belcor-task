@@ -79,7 +79,7 @@ const FormLogin: FC = () => {
                     <Input.Password placeholder="Password" />
                 </Form.Item>
 
-                <Button loading={loading} onClick={handleFormSubmit}>SUBMIT</Button>
+                <Button block type='primary' loading={loading} onClick={handleFormSubmit}>SUBMIT</Button>
             </Form>
 
         </>

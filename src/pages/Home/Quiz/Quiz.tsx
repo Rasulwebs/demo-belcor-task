@@ -84,6 +84,7 @@ export const Quiz: FC = () => {
 
     const handleSubmitAnswers = () => {
         editUserAnswrs(correctAnswers)
+        navigate("/results")
     }
 
     // console.log(correctAnswers)

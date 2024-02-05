@@ -10,12 +10,16 @@ export const Register: FC = () => {
         if (isAuth) {
             return navigate("/")
         }
-    },[isAuth])
+    }, [isAuth])
     return (
         <div>
             Register
-            <FormRegister />
-            or <Link to={"/login"}>Login</Link>
+            <div className={styled.registerFormWrapper}>
+
+                <FormRegister />
+                <br /> <hr /><br />
+                or <Link to={"/login"}>Login</Link>
+            </div>
         </div>
     );
 };
