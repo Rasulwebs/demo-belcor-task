@@ -9,8 +9,12 @@ export const AuthService = {
   async register(props: UserTypes.UserFormRegisterType) {
     return await appInstance.post("/users", { ...props });
   },
+  async getAllUsers() {
+    const { data } = await appInstance.get<UserTypes.UserAdditionalInfoType[]>("/users");
+    return data;
+  },
 
   async checkUser(props: UserTypes.UserCheckType) {
-    return await appInstance.post("/users", { ...props });
+    return await appInstance.get(`/users?username=${props.username}`);
   },
 };

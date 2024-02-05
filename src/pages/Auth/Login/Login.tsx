@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from "./styleLogin.module.css"
 import FormLogin from './components/formLogin/FormLogin';
-import { Link } from 'react-router-dom';
-const Login = () => {
+import { Link, useNavigate } from 'react-router-dom';
+import useUser from '@/hooks/useUser';
+ export const Login = () => {
+    const { isAuth } = useUser()
+    const navigate = useNavigate()
+    useEffect(() => {
+        if (isAuth) {
+            return navigate("/")
+        }
+    },[isAuth])
     return (
         <div>
             Login
@@ -13,4 +21,3 @@ const Login = () => {
     );
 };
 
-export default Login;

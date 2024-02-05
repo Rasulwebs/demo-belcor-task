@@ -1,17 +1,17 @@
 export namespace UserTypes {
   export interface AuthUserTypes {
-    id: string;
     email: string;
     username: string;
     isAuth: boolean;
+    id:string
   }
 
   export interface IUser {
     user: AuthUserTypes | null;
   }
 
-  export interface UserAdditionalInfoType {
-    correctAnsvers: number;
+  export interface UserAdditionalInfoType extends UserFormRegisterType{
+    correctAnswers: number;
   }
 
   export interface UserFormRegisterType {
@@ -21,8 +21,8 @@ export namespace UserTypes {
   }
 
   export interface UserFormLoginType {
-    email: string;
     username: string;
+    password: string;
   }
 
   export interface UserCheckType extends UserFormLoginType {}

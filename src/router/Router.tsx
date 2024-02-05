@@ -1,14 +1,19 @@
 import React from "react";
+import { Login } from "@/pages/Auth/Login";
+import { Register } from "@/pages/Auth/Register";
+import { Home } from "@/pages/Home";
+import { Quiz } from "@/pages/Home/Quiz";
 import { Routes, Route } from "react-router-dom";
-import Login from "@/pages/Auth/Login/Login";
-import Register from "@/pages/Auth/Register/Register";
-import Home from "@/pages/Home/Home";
+import { Results } from "@/pages/Home/Results";
+
 
 const Router = () => {
     return (
         <>
             <Routes>
                 <Route path="/" element={<Home />} />
+                <Route path="/quizes/:subject" element={<Quiz />} />
+                <Route path="/results" element={<Results />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
             </Routes>

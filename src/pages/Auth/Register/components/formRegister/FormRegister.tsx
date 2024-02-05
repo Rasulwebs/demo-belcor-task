@@ -19,26 +19,6 @@ const FormRegister = () => {
     const handleFinish = async (value: UserTypes.UserFormRegisterType) => {
         setLoading(true)
 
-        // const auth = getAuth()
-
-        // await createUserWithEmailAndPassword(auth, value?.email, value?.password)
-        //     .then((user) => {
-        //         dispatch(setUser({
-        //             id: user?.user?.uid,
-        //             email: user?.user?.email as string,
-        //             token: user?.user?.refreshToken
-        //         }))
-
-        //         navigate("/")
-        //         setLoading(false)
-        //     })
-        //     .catch((err: FirebaseError) => {
-        //         console.log(err)
-        //         addNotificationFirebaseErr(err.message)
-        //         setLoading(false)
-
-        //     })
-
         await AuthService.register(value).then((res) => {
             if (res.data) {
                 console.log(res)
@@ -46,7 +26,6 @@ const FormRegister = () => {
                 form.resetFields()
                 dispatch(setUser({
                     isAuth: true,
-                    id: value?.email,
                     email: value?.email as string,
                     username: value?.username
                 }))

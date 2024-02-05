@@ -19,42 +19,22 @@ const FormLogin: FC = () => {
 
     const handleFinish = async (value: UserTypes.UserFormLoginType) => {
         setLoading(true)
-
-        // const auth = getAuth()
-
-        // await signInWithEmailAndPassword(auth, value?.email, value?.password)
-        //     .then((user) => {
-        //         dispatch(setUser({
-        //             id: user?.user?.uid,
-        //             email: user?.user?.email as string,
-        //             username: user?.user?.refreshToken
-        //         }))
-        //         navigate("/")
-        //         setLoading(false)
-        //     })
-        //     .catch((err: FirebaseError) => {
-        //         console.log(err)
-        //         addNotificationFirebaseErr(err.message)
-        //         setLoading(false)
-        //     })
-
-        
-
-        await AuthService.login(value).then((res) => {
+        await AuthService.checkUser(value).then((res) => {
+            console.log(res)
             if (res.data) {
-                console.log(res)
-                addNotificationAxios("Successfully registered")
+                navigate("/")
                 form.resetFields()
                 dispatch(setUser({
+                    id: res?.data[0]?.id,
                     isAuth: true,
-                    id: value?.email,
-                    email: value?.email as string,
+                    email: res.data[0]?.email,
                     username: value?.username
                 }))
-                navigate("/")
                 setLoading(false)
             }
-        }).catch(addNotificationAxios).
+        }).catch((err) => {
+            addNotificationFirebaseErr("User not found")
+        }).
             finally(() => { setLoading(false) })
     }
 
@@ -78,7 +58,7 @@ const FormLogin: FC = () => {
                 >
                     <Input placeholder="Username" />
                 </Form.Item>
-                <Form.Item
+                {/* <Form.Item
                     name="email"
                     label="Email"
                     rules={[{ required: true }, {
@@ -88,7 +68,7 @@ const FormLogin: FC = () => {
                     getValueFromEvent={(event) => event.target.value.trimStart()}
                 >
                     <Input type='email' placeholder="Email" />
-                </Form.Item>
+                </Form.Item> */}
                 <Form.Item
                     name="password"
                     label="Password"

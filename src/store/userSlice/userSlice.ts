@@ -26,6 +26,7 @@ const UserSlice = createSlice({
     removeUser(state) {
       state.user = null;
       window.localStorage.removeItem("user");
+      window.localStorage.removeItem("subject");
     },
   },
 });

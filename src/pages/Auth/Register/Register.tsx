@@ -1,8 +1,16 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import styled from "./styleRegister.module.css"
 import FormRegister from './components/formRegister/FormRegister';
-import { Link } from 'react-router-dom';
-const Register: FC = () => {
+import { Link, useNavigate } from 'react-router-dom';
+import useUser from '@/hooks/useUser';
+export const Register: FC = () => {
+    const { isAuth } = useUser()
+    const navigate = useNavigate()
+    useEffect(() => {
+        if (isAuth) {
+            return navigate("/")
+        }
+    },[isAuth])
     return (
         <div>
             Register
@@ -11,5 +19,3 @@ const Register: FC = () => {
         </div>
     );
 };
-
-export default Register;
